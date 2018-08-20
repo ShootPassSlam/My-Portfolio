@@ -6,6 +6,9 @@ name = "pypi"
 [packages]
 gunicorn = "*"
 whitenoise = "*"
+django = "*"
+django-heroku = "*"
 
 [requires]
-python_version = "3.6"
+Django = ">=2.0"
+python_version = "3.7.0"
