@@ -29,6 +29,7 @@ DEBUG = True
 ALLOWED_HOSTS = [
      'still-atoll-90110.herokuapp.com',
      'localhost',
+     'www.dominicscotto.org',
 ]
 
 
