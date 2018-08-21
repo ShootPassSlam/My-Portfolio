@@ -81,17 +81,7 @@ WSGI_APPLICATION = 'myportfolio.wsgi.application'
 # https://docs.djangoproject.com/en/1.11/ref/settings/#databases
 # 'NAME': os.path.join(BASE_DIR, 'db.sqlite3'),
 
-DATABASES = {
-    'default': {
-        'ENGINE': 'django.db.backends.postgresql',
-        'NAME': 'portfoliodatabase',
-        'USER': 'portfoliodatabaseuser',
-        'PASSWORD': 'portfoliopassword',
-        'HOST': 'localhost',
-        'PORT': '5432',
-    }
-}
-
+DATABASES = { 'default': dj_database_url.config(conn_max_age=600)}
 
 # Password validation
 # https://docs.djangoproject.com/en/1.11/ref/settings/#auth-password-validators
@@ -130,3 +120,4 @@ USE_TZ = None
 # https://docs.djangoproject.com/en/1.11/howto/static-files/
 STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')
 STATIC_URL = '/static/'
+
