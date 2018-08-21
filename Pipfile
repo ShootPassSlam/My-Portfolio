@@ -8,6 +8,8 @@ gunicorn = "*"
 whitenoise = "*"
 django = "*"
 django-heroku = "*"
+dj-database-url = "*"
+"psycopg2" = "*"
 
 [requires]
 Django = ">=2.0"
