@@ -80,16 +80,6 @@ WSGI_APPLICATION = 'myportfolio.wsgi.application'
 # https://docs.djangoproject.com/en/1.11/ref/settings/#databases
 # 'NAME': os.path.join(BASE_DIR, 'db.sqlite3'),
 
-DATABASES = {
-    'default': {
-        'ENGINE': 'django.db.backends.postgresql',
-        'NAME': 'portfoliodatabase',
-        'USER': 'portfoliodatabaseuser',
-        'PASSWORD': 'portfoliopassword',
-        'HOST': '127.0.0.1',
-        'PORT': '5432',
-    }
-}
 
 
 # Password validation
