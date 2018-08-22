@@ -16,8 +16,10 @@ Including another URLconf
 from django.contrib import admin
 from django.conf.urls import include
 from django.urls import path
+from django.views.generic import TemplateView
 
 urlpatterns = [
+    path('', TemplateView.as_view(template_name="myportfolio/home.html")),
     path('polls/', include('polls.urls')),
     path('blog/', include('blog.urls')),
     path('admin/', admin.site.urls),
