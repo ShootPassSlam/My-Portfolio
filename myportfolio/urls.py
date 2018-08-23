@@ -19,7 +19,7 @@ from django.urls import path
 from django.views.generic import TemplateView
 
 urlpatterns = [
-    path('', TemplateView.as_view(template_name="myportfolio/home.html")),
+    path('', TemplateView.as_view(template_name="myportfolio/home.html"), name='home'),
     path('polls/', include('polls.urls')),
     path('blog/', include('blog.urls')),
     path('admin/', admin.site.urls),
