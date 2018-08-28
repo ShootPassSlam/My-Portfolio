@@ -10,6 +10,7 @@ django = "*"
 django-heroku = "*"
 dj-database-url = "*"
 "psycopg2" = "*"
+pillow = "*"
 
 [requires]
 Django = ">=2.0"
