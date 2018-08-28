@@ -1,4 +1,4 @@
-{% load staticfiles %}
+{% load static %}
 <html>
     <head>
         <!-- JQUERY for Bootstrap & more-->
@@ -11,9 +11,11 @@
         <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js" integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy" crossorigin="anonymous"></script>
         <title>Dominic Scotto Portfolio</title>
         <link rel="shortcut icon" href="{% static 'favicon/favicon.ico' %}">
+        <link rel="stylesheet" type="text/css" href="{% static 'style.css' %}?{% now 'U' %}">
     </head>
     <body>
         {% block nav %}
+        <header>
         <nav class="navbar navbar-expand-lg navbar-light bg-light">
             <a class="navbar-brand" href="{% url 'home' %}">Dominic Scotto</a>
             <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
@@ -21,14 +23,23 @@
             </button>
             <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
                 <div class="navbar-nav">
-                    {% block nav-projects %}<a class="nav-item nav-link {% if active == 'projects' %} active {% endif %}" href="{% url 'projects:index' %}">Projects<span class="sr-only">(current)</span></a>{% endblock %}
+                    {% block nav-projects %}<a class="nav-item nav-link {% if active == 'projects' %} active {% endif %}" href="{% url 'projects:index' %}">Projects</a>{% endblock %}
                     {% block nav-blog %}<a class="nav-item nav-link {% if active == 'blog' %} active {% endif %}" href="{% url 'blog:index' %}">Blog</a>{% endblock %}
                     {% block nav-contact %}<a class="nav-item nav-link {% if active == 'contact' %} active {% endif %}" href="{% url 'contact' %}">Contact</a>{% endblock %}
                 </div>
             </div>
         </nav>
+        </header>
         {% endblock %}
+        <!-- The content of any page, this content is wrapped around the header and footer outlined here-->
         {% block content %}
+        {% endblock %}
+        {% block footer %}
+        <footer class="footer">
+            <div class="container">
+                <p> Built By Dominic Scotto<a href="https://getbootstrap.com/"></a> check out my <a href="https://twitter.com/mdo"></a>github</p>
+            </div>    
+        </footer>
         {% endblock %}
     </body>
 </html>

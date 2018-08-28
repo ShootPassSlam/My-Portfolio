@@ -1,1 +1,2 @@
-{% include "myportfolio/base.html" with active='contact' %}
+{% extends "myportfolio/base.html" %}
+{% block nav %}{% with active='contact' %}{{ block.super }}{% endwith%}{% endblock nav %}
