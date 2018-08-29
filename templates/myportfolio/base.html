@@ -14,6 +14,7 @@
         <link rel="stylesheet" type="text/css" href="{% static 'style.css' %}?{% now 'U' %}">
     </head>
     <body>
+        <!-- Header Block-->
         {% block nav %}
         <header>
         <nav class="navbar navbar-expand-lg navbar-light bg-light">
@@ -32,10 +33,10 @@
         </header>
         {% endblock %}
         <!-- The content of any page, this content is wrapped around the header and footer outlined here-->
-        {% block content %}
-        {% endblock %}
+        {% block content %}{% endblock %}
+        <!-- Footer Block-->
         {% block footer %}
-        <footer class="footer">
+        <footer class="footer mastfoot mt-auto">
             <div class="container">
                 <p> Built By Dominic Scotto<a href="https://getbootstrap.com/"></a> check out my <a href="https://twitter.com/mdo"></a>github</p>
             </div>    
