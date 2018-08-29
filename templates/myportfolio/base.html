@@ -26,7 +26,6 @@
                 <div class="navbar-nav">
                     {% block nav-projects %}<a class="nav-item nav-link {% if active == 'projects' %} active {% endif %}" href="{% url 'projects:index' %}">Projects</a>{% endblock %}
                     {% block nav-blog %}<a class="nav-item nav-link {% if active == 'blog' %} active {% endif %}" href="{% url 'blog:index' %}">Blog</a>{% endblock %}
-                    {% block nav-contact %}<a class="nav-item nav-link {% if active == 'contact' %} active {% endif %}" href="{% url 'contact' %}">Contact</a>{% endblock %}
                 </div>
             </div>
         </nav>
@@ -36,10 +35,11 @@
         {% block content %}{% endblock %}
         <!-- Footer Block-->
         {% block footer %}
-        <footer class="footer mastfoot mt-auto">
-            <div class="container">
-                <p> Built By Dominic Scotto<a href="https://getbootstrap.com/"></a> check out my <a href="https://twitter.com/mdo"></a>github</p>
-            </div>    
+        <footer class="text-center row align-items-center">
+            <div class="col">
+                <p> Contact me at <a href="mailto:dominicscotto@gmail.com">dominicscotto@gmail.com</a></p>
+                <p> Check out my <a href="https://www.github.com/ShootPassSlam">Github</a></p>
+            </div>
         </footer>
         {% endblock %}
     </body>
