@@ -22,5 +22,6 @@ urlpatterns = [
     path('', TemplateView.as_view(template_name="myportfolio/home.html"), name='home'),
     path('blog/', include('blog.urls')),
     path('projects/', include('projects.urls')),
+    path('polls/', include('polls.urls')),
     path('admin/', admin.site.urls),
 ]
