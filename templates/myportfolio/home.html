@@ -1,4 +1,5 @@
 {% extends "myportfolio/base.html" %}
+{% block additional_styles %}<style>body {background-image: url(static/myportfolio/images/cover_image.jpeg);}</style>{% endblock %}
 {% block nav %}{% with active='home' %}{{ block.super }}{% endwith%}{% endblock nav %}
 {% load static %}
 
