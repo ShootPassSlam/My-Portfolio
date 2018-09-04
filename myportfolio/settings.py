@@ -12,6 +12,7 @@ https://docs.djangoproject.com/en/1.11/ref/settings/
 
 import os
 import dj_database_url
+import django_heroku
 
 # Build paths inside the project like this: os.path.join(BASE_DIR, ...)
 BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
@@ -133,3 +134,8 @@ STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')
 MEDIA_URL = '/media/'
 
 MEDIA_ROOT  = os.path.join(BASE_DIR, 'media')
+
+django_heroku.settings(locals())
+# override DATABASE_URL set by django_heroku because it forces SSL mode locally
+ssl_require = not DEBUG
+locals()['DATABASES']['default'] = dj_database_url.config(conn_max_age=django_heroku.MAX_CONN_AGE, ssl_require=ssl_require)
