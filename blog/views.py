@@ -15,5 +15,11 @@ class IndexView(generic.ListView):
             pub_date__lte=timezone.now()
         ).order_by('-pub_date')[:5]
 
-def detail(request, post_id):
-    return HttpResponse("You're looking at post %s." % post_id)
+class DetailView(generic.DetailView):
+    model = Post
+    template_name = 'blog/detail.html'
+    def get_queryset(self):
+        """
+        Excludes any posts that aren't published yet.
+        """
+        return Post.objects.filter(pub_date__lte=timezone.now())
