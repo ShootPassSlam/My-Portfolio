@@ -11,6 +11,8 @@ django-heroku = "*"
 dj-database-url = "*"
 "psycopg2" = "*"
 pillow = "*"
+django-storages = "*"
+"boto3" = "*"
 
 [requires]
 Django = ">=2.0"

@@ -47,6 +47,7 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
+    'storages',
 ]
 
 MIDDLEWARE = [
@@ -120,22 +121,31 @@ USE_L10N = True
 USE_TZ = None
 
 
-# Static files (CSS, JavaScript, Images)
-# https://docs.djangoproject.com/en/1.11/howto/static-files/
-
-STATIC_URL = '/static/'
-
 STATICFILES_DIRS = ( 
     os.path.join(BASE_DIR, 'static'),
+    os.path.join(BASE_DIR, 'media'),
 )
 
-STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')
+AWS_S3_SECURE_URLS = False
+AWS_STORAGE_BUCKET_NAME = 'dominic.scotto.portfolio.site'
+AWS_S3_REGION_NAME = 'us-west-1'  # e.g. us-east-2
+AWS_ACCESS_KEY_ID = 'AKIAJENIJRQOXHOOQFJQ'
+AWS_SECRET_ACCESS_KEY = 'pwqgeZoKBlYN6bhM+asIQEJNo7WeS7+gqWIbAY4A'
+# Tell django-storages the domain to use to refer to static files.
+AWS_S3_CUSTOM_DOMAIN = '%s.s3.amazonaws.com' % AWS_STORAGE_BUCKET_NAME
+# Tell the staticfiles app to use S3Boto3 storage when writing the collected static files (when
+# you run `collectstatic`).
+STATICFILES_LOCATION = 'static'
+STATICFILES_STORAGE = 'custom_storages.StaticStorage'
+MEDIAFILES_LOCATION = 'media'
+DEFAULT_FILE_STORAGE = 'custom_storages.MediaStorage'
+# # Static files (CSS, JavaScript, Images)
+# # https://docs.djangoproject.com/en/1.11/howto/static-files/
+# STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')
+# MEDIA_URL = '/media/'
+# MEDIA_ROOT  = os.path.join(BASE_DIR, 'media')
 
-MEDIA_URL = '/media/'
-
-MEDIA_ROOT  = os.path.join(BASE_DIR, 'media')
-
-django_heroku.settings(locals())
-# override DATABASE_URL set by django_heroku because it forces SSL mode locally
-ssl_require = not DEBUG
-locals()['DATABASES']['default'] = dj_database_url.config(conn_max_age=django_heroku.MAX_CONN_AGE, ssl_require=ssl_require)
+# django_heroku.settings(locals())
+# # override DATABASE_URL set by django_heroku because it forces SSL mode locally
+# ssl_require = not DEBUG
+# locals()['DATABASES']['default'] = dj_database_url.config(conn_max_age=django_heroku.MAX_CONN_AGE, ssl_require=ssl_require)

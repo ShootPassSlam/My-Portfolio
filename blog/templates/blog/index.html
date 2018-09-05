@@ -1,6 +1,6 @@
 {% extends "myportfolio/base.html" %}
-{% block nav %}{% with active='blog' %}{{ block.super }}{% endwith%}{% endblock nav %}
 {% load static %}
+{% block nav %}{% with active='blog' %}{{ block.super }}{% endwith%}{% endblock nav %}
 
 {% block content %}
 <link rel="stylesheet" type="text/css" href="{% static 'blog/style.css' %}?{% now 'U' %}">
