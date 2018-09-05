@@ -6,8 +6,6 @@ name = "pypi"
 [packages]
 gunicorn = "*"
 whitenoise = "*"
-django = "*"
-django-heroku = "*"
 dj-database-url = "*"
 "psycopg2" = "*"
 pillow = "*"
@@ -16,5 +14,5 @@ django-storages = "*"
 python-dotenv = "*"
 
 [requires]
-Django = ">=2.0"
+django = ">=2.0"
 python_version = "3.7.0"
