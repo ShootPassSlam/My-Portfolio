@@ -13,6 +13,7 @@ dj-database-url = "*"
 pillow = "*"
 django-storages = "*"
 "boto3" = "*"
+python-dotenv = "*"
 
 [requires]
 Django = ">=2.0"
