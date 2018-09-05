@@ -124,7 +124,6 @@ USE_TZ = None
 
 STATICFILES_DIRS = ( 
     os.path.join(BASE_DIR, 'static'),
-    os.path.join(BASE_DIR, 'media'),
 )
 
 AWS_S3_SECURE_URLS = False
@@ -145,8 +144,3 @@ DEFAULT_FILE_STORAGE = 'custom_storages.MediaStorage'
 # STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')
 # MEDIA_URL = '/media/'
 # MEDIA_ROOT  = os.path.join(BASE_DIR, 'media')
-
-# django_heroku.settings(locals())
-# # override DATABASE_URL set by django_heroku because it forces SSL mode locally
-# ssl_require = not DEBUG
-# locals()['DATABASES']['default'] = dj_database_url.config(conn_max_age=django_heroku.MAX_CONN_AGE, ssl_require=ssl_require)
