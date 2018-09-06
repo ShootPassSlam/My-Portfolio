@@ -12,6 +12,7 @@ pillow = "*"
 django-storages = "*"
 "boto3" = "*"
 python-dotenv = "*"
+"django-tinymce4-widget" = "*"
 
 [requires]
 django = ">=2.0"

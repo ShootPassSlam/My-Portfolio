@@ -1,12 +1,13 @@
 import datetime
 
 from django.db import models
+from tinymce import HTMLField
 from django.utils import timezone
 
 class Post(models.Model):
     post_title = models.CharField(max_length=200)
     post_subtitle = models.CharField(max_length=200, null=True)
-    post_body = models.TextField(max_length=5000, null=True)
+    post_body = HTMLField('Content')
     pub_date = models.DateTimeField('date published', null=True)
     primary_photo = models.ImageField(null=True, upload_to='blog/')
     body_photo = models.ImageField(blank=True, null=True, upload_to='blog/')
