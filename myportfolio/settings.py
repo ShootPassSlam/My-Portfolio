@@ -27,7 +27,7 @@ if os.path.isfile(dotenv_file):
 # See https://docs.djangoproject.com/en/1.11/howto/deployment/checklist/
 
 # SECURITY WARNING: keep the secret key used in production secret!
-SECRET_KEY = 'sy2nca0!x33h%!*og8d6%%v1_a&z2o^3#s+f9itjc4k6fc!z%6'
+SECRET_KEY = "SECRET_KEY"
 
 # SECURITY WARNING: don't run with debug turned on in production!
 # DEBUG = False
@@ -125,7 +125,8 @@ USE_L10N = True
 
 USE_TZ = None
 
-
+# Static files (CSS, JavaScript, Images)
+# https://docs.djangoproject.com/en/1.11/howto/static-files/
 STATICFILES_DIRS = ( 
     os.path.join(BASE_DIR, 'static'),
 )
@@ -133,8 +134,8 @@ STATICFILES_DIRS = (
 AWS_S3_SECURE_URLS = False
 AWS_STORAGE_BUCKET_NAME = 'dominic.scotto.portfolio.site'
 AWS_S3_REGION_NAME = 'us-west-1'  # e.g. us-east-2
-AWS_ACCESS_KEY_ID = os.getenv("AWS_ACCESS_KEY_ID")
-AWS_SECRET_ACCESS_KEY = os.getenv("AWS_SECRET_ACCESS_KEY")
+AWS_ACCESS_KEY_ID = "AWS_ACCESS_KEY_ID"
+AWS_SECRET_ACCESS_KEY = "AWS_SECRET_ACCESS_KEY"
 # Tell django-storages the domain to use to refer to static files.
 AWS_S3_CUSTOM_DOMAIN = '%s.s3.amazonaws.com' % AWS_STORAGE_BUCKET_NAME
 # Tell the staticfiles app to use S3Boto3 storage when writing the collected static files (when
@@ -143,8 +144,3 @@ STATICFILES_LOCATION = 'static'
 STATICFILES_STORAGE = 'custom_storages.StaticStorage'
 MEDIAFILES_LOCATION = 'media'
 DEFAULT_FILE_STORAGE = 'custom_storages.MediaStorage'
-# # Static files (CSS, JavaScript, Images)
-# # https://docs.djangoproject.com/en/1.11/howto/static-files/
-# STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')
-# MEDIA_URL = '/media/'
-# MEDIA_ROOT  = os.path.join(BASE_DIR, 'media')
