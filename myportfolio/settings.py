@@ -12,12 +12,16 @@ https://docs.djangoproject.com/en/1.11/ref/settings/
 
 import os
 import dj_database_url
-from dotenv import load_dotenv
-load_dotenv()
+import dotenv
+
 
 # Build paths inside the project like this: os.path.join(BASE_DIR, ...)
 BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 
+# load environment variables from .env
+dotenv_file = os.path.join(BASE_DIR, ".env")
+if os.path.isfile(dotenv_file):
+    dotenv.load_dotenv(dotenv_file)
 
 # Quick-start development settings - unsuitable for production
 # See https://docs.djangoproject.com/en/1.11/howto/deployment/checklist/
@@ -27,7 +31,7 @@ SECRET_KEY = 'sy2nca0!x33h%!*og8d6%%v1_a&z2o^3#s+f9itjc4k6fc!z%6'
 
 # SECURITY WARNING: don't run with debug turned on in production!
 # DEBUG = False
-DEBUG = bool(os.environ.get('DJANGO_DEBUG', True))
+DEBUG = bool(os.environ.get("DJANGO_DEBUG", True))
 
 ALLOWED_HOSTS = [
      'still-atoll-90110.herokuapp.com',
@@ -129,8 +133,8 @@ STATICFILES_DIRS = (
 AWS_S3_SECURE_URLS = False
 AWS_STORAGE_BUCKET_NAME = 'dominic.scotto.portfolio.site'
 AWS_S3_REGION_NAME = 'us-west-1'  # e.g. us-east-2
-AWS_ACCESS_KEY_ID = os.getenv("AWS_ACCESS_KEY_ID_ENV")
-AWS_SECRET_ACCESS_KEY = os.getenv("AWS_SECRET_ACCESS_KEY_ENV")
+AWS_ACCESS_KEY_ID = os.getenv("AWS_ACCESS_KEY_ID")
+AWS_SECRET_ACCESS_KEY = os.getenv("AWS_SECRET_ACCESS_KEY")
 # Tell django-storages the domain to use to refer to static files.
 AWS_S3_CUSTOM_DOMAIN = '%s.s3.amazonaws.com' % AWS_STORAGE_BUCKET_NAME
 # Tell the staticfiles app to use S3Boto3 storage when writing the collected static files (when
