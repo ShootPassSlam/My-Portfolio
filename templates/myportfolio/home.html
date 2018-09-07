@@ -5,13 +5,15 @@
 
 {% block content %}
 <link rel="stylesheet" type="text/css" href="{% static 'myportfolio/style.css' %}?{% now 'U' %}">
-<div class="text-center">
-	<div class="h-100 row align-items-center">
-		<main role="main" class="col">
-			<h1 class="display-1">Dominic Scotto</h1>
-			<h5 class="text-muted">Web Developer / Product Manager</h5>
-			<p class="lead">I program, I make games, I design products.</p>
-		</main>
+<main role="main" class="container">
+	<div class="text-center">
+		<div class="h-100 row align-items-center">
+			<main role="main" class="col">
+				<h1 class="display-1">Dominic Scotto</h1>
+				<h5 class="text-muted">Web Developer / Product Manager</h5>
+				<p class="lead">I program, I make games, I design products.</p>
+			</main>
+		</div>
 	</div>
-</div>
+</main>
 {% endblock %}
