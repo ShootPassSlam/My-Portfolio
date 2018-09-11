@@ -12,10 +12,12 @@ class Project(models.Model):
 	PRODUCTMANAGER = 'PM'
 	WEBDEVELOPER = 'WD'
 	MACHINELEARNING = 'ML'
+	GAMEDEVELOPER = 'GD'
 	PROJECT_TYPE_CHOICES = (
 		(PRODUCTMANAGER, 'Product Manager'),
 		(WEBDEVELOPER, 'Web Developer'),
 		(MACHINELEARNING, 'Machine Learning'),
+		(GAMEDEVELOPER, 'Game Developer'),
 	)
 	project_type = models.CharField(
 		max_length=2,
