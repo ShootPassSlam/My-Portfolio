@@ -7,13 +7,13 @@ from .models import Project
 
 class IndexView(generic.ListView):
     template_name = 'projects/index.html'
-    context_object_name = 'latest_project_list'
+    context_object_name = 'project_list'
 
     def get_queryset(self):
         """Return the last five published projects."""
         return Project.objects.filter(
             project_date__lte=timezone.now()
-        ).order_by('-project_date')[:5]
+        )
 
 def detail(request, post_id):
     return HttpResponse("You're looking at project %s." % project_id)

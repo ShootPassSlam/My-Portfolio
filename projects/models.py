@@ -25,7 +25,7 @@ class Project(models.Model):
 		default=WEBDEVELOPER,
 	)
 	project_link = models.URLField(max_length=100)
-	project_date = models.DateTimeField('project date')
+	project_date = models.DateField('project date')
 	project_photo = models.ImageField(null=True, upload_to='projects/')
 	def __str__(self):
 		return self.project_description
