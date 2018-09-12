@@ -4,7 +4,12 @@ body {
     background-size: cover;
 }
 
-a, a:hover, a:visited, a:active, a:link  {
+a.project-link, a.project-link:hover, a.project-link:visited, a.project-link:active, a.project-link:link {
+  color: inherit;
+  text-decoration: none;
+ }
+
+a.post-link, a.post-link:hover, a.post-link:visited, a.post-link:active, a.post-link:link {
   color: inherit;
   text-decoration: none;
  }
