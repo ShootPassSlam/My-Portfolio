@@ -7,7 +7,7 @@
       <section class="jumbotron text-center">
         <div class="container">
           <h1 class="jumbotron-heading">Projects</h1>
-          <p class="lead text-muted">My personal and professional projects. Showcasing my experience in Web Developing, Product Managment, and Data Science</p>
+          <p class="lead text-muted">My personal and professional projects. Showcasing my experience in Web Developing, Game Development, Product Managment, and Machine Learning</p>
         </div>
       </section>
 
@@ -23,7 +23,7 @@
                 <div class="card-body">
                   <p class="card-text">{{project.project_description|safe}}</p>
                   <div class="d-flex justify-content-between align-items-center">
-                    <div class="btn-group">
+                    <div class="btn-group tech-tags">
                       {% for tag in project.tech_used.all %}
                         <span class="badge badge-pill badge-primary">{{tag}}</span>
                       {% endfor %}

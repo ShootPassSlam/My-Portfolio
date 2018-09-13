@@ -13,3 +13,7 @@ a.post-link, a.post-link:hover, a.post-link:visited, a.post-link:active, a.post-
   color: inherit;
   text-decoration: none;
  }
+
+.tech-tags{
+ 	display:block;
+}
