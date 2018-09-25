@@ -1,8 +1,13 @@
 import datetime
 
+from django.db.models.signals import post_save
+from django.dispatch import receiver
 from django.db import models
 from tinymce import HTMLField
 from django.utils import timezone
+from django.core.cache import cache
+
+POSTS_KEY = "posts.all"
 
 class Post(models.Model):
     post_title = models.CharField(max_length=200)
@@ -14,4 +19,9 @@ class Post(models.Model):
         return self.post_body
     def was_published_in_the_past(self):
         now = timezone.now()
-        return now - datetime.timedelta(days=1) <= self.pub_date <= now   
+        return now - datetime.timedelta(days=1) <= self.pub_date <= now 
+
+@receiver(post_save, sender=Post)
+def invalidate_cache(sender, **kwargs):
+    print("clear cache")
+    cache.delete(POSTS_KEY)
