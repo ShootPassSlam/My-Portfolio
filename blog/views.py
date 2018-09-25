@@ -15,6 +15,7 @@ class IndexView(generic.ListView):
     def get_queryset(self):
         posts = cache.get(POSTS_KEY)
         if not posts:
+            print("NOTHNG CACHED")
             posts = Post.objects.filter(pub_date__lte=timezone.now()).order_by('-pub_date')
             cache.set(POSTS_KEY, posts)
         for post in posts:
