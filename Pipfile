@@ -14,6 +14,7 @@ django-storages = "*"
 python-dotenv = "*"
 "django-tinymce4-widget" = "*"
 django-taggit = "*"
+pylibmc = "*"
 
 [requires]
 django = ">=2.0"
