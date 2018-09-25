@@ -13,19 +13,14 @@ POSTS_KEY = "posts.all"
 class IndexView(generic.ListView):
     template_name = 'blog/index.html'
     context_object_name = 'latest_post_list'    
-    posts = cache.get(POSTS_KEY)
-    if not posts:
-        time.sleep(2)  # simulate a slow query.
-        """Return the last five published posts."""
-        posts = Post.objects.filter(
-                pub_date__lte=timezone.now()
-            ).order_by('-pub_date')[:5]
-        cache.set(POSTS_KEY, posts)
 
     def get_queryset(self):
-        c = {'posts': posts}
-        c.update(csrf(request)) 
-        return  c
+        posts = cache.get(POSTS_KEY)
+        if not posts:
+            time.sleep(2)  # simulate a slow query.
+            posts = Post.objects.filter(pub_date__lte=timezone.now()).order_by('-pub_date')
+            cache.set(POSTS_KEY, posts)
+        return posts
 
 class DetailView(generic.DetailView):
     model = Post
