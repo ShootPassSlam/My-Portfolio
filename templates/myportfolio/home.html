@@ -1,9 +1,11 @@
 {% extends "myportfolio/base.html" %}
 {% load static %}
+{% load cache %}
 {% block additional_styles %}<style>body {background-image: url("{% static 'myportfolio/images/coverpage_image.jpeg' %}");}</style>{% endblock %}
 {% block nav %}{% with active='home' %}{{ block.super }}{% endwith%}{% endblock nav %}
 
 {% block content %}
+{% cache None 'home-fragment' %}
 <link rel="stylesheet" type="text/css" href="{% static 'myportfolio/style.css' %}?{% now 'U' %}">
 <main role="main" class="container">
 	<div class="text-center">
@@ -16,4 +18,5 @@
 		</div>
 	</div>
 </main>
+{% endcache %}
 {% endblock %}
