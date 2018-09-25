@@ -40,6 +40,6 @@ class Project(models.Model):
 def invalidate_cache(sender, **kwargs):
     cache.delete(PROJECTS_KEY)
 
-@receiver(post_deleete, sender=Project)
+@receiver(post_delete, sender=Project)
 def invalidate_cache(sender, **kwargs):
     cache.delete(PROJECTS_KEY)
