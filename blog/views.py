@@ -4,8 +4,6 @@ from django.views import generic
 from django.utils import timezone
 from django.core.cache import cache
 
-import time
-
 from .models import Post
 
 POSTS_KEY = "posts.all"
@@ -17,7 +15,6 @@ class IndexView(generic.ListView):
     def get_queryset(self):
         posts = cache.get(POSTS_KEY)
         if not posts:
-            time.sleep(2)  # simulate a slow query.
             posts = Post.objects.filter(pub_date__lte=timezone.now()).order_by('-pub_date')
             cache.set(POSTS_KEY, posts)
         return posts
