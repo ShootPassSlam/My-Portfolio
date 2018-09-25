@@ -1,10 +1,16 @@
 import datetime
 
+from django.db.models.signals import post_save
+from django.dispatch import receiver
+
 from django.db import models
 from tinymce import HTMLField
 from taggit.managers import TaggableManager
 from taggit.models import TaggedItemBase
 from django.utils import timezone
+
+PROJECTS_KEY = "projects.all"
+
 class Project(models.Model):
 	project_title = models.CharField(max_length=200)
 	project_description = HTMLField('Content', null=True)
@@ -29,3 +35,7 @@ class Project(models.Model):
 	project_photo = models.ImageField(null=True, upload_to='projects/')
 	def __str__(self):
 		return self.project_description
+
+@receiver(post_save, sender=Project)
+def invalidate_cache(sender, **kwargs):
+    cache.delete(PROJECTS_KEY)

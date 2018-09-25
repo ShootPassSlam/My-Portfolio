@@ -2,6 +2,7 @@ import datetime
 
 from django.db.models.signals import post_save
 from django.dispatch import receiver
+
 from django.db import models
 from tinymce import HTMLField
 from django.utils import timezone
@@ -23,5 +24,4 @@ class Post(models.Model):
 
 @receiver(post_save, sender=Post)
 def invalidate_cache(sender, **kwargs):
-    print("clear cache")
     cache.delete(POSTS_KEY)
