@@ -1,6 +1,6 @@
 import datetime
 
-from django.db.models.signals import post_save
+from django.db.models.signals import post_save, post_delete
 from django.dispatch import receiver
 
 from django.db import models
@@ -37,5 +37,9 @@ class Project(models.Model):
 		return self.project_description
 
 @receiver(post_save, sender=Project)
+def invalidate_cache(sender, **kwargs):
+    cache.delete(PROJECTS_KEY)
+
+@receiver(post_deleete, sender=Project)
 def invalidate_cache(sender, **kwargs):
     cache.delete(PROJECTS_KEY)

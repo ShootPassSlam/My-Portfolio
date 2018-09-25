@@ -1,6 +1,6 @@
 import datetime
 
-from django.db.models.signals import post_save
+from django.db.models.signals import post_save, post_delete
 from django.dispatch import receiver
 
 from django.db import models
@@ -25,3 +25,7 @@ class Post(models.Model):
 @receiver(post_save, sender=Post)
 def invalidate_cache(sender, **kwargs):
     cache.delete(POSTS_KEY)
+
+@receiver(post_delete, sender=Post)
+def invalidate_cache(sender, **kwargs):
+    cache.delete(POSTS_KEY) 
