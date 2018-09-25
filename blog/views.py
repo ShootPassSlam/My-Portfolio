@@ -17,6 +17,8 @@ class IndexView(generic.ListView):
         if not posts:
             posts = Post.objects.filter(pub_date__lte=timezone.now()).order_by('-pub_date')
             cache.set(POSTS_KEY, posts)
+        for post in posts:
+            print(post.post_title)
         return posts
 
 class DetailView(generic.DetailView):
