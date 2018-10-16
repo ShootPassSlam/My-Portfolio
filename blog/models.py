@@ -23,9 +23,9 @@ class Post(models.Model):
         return now - datetime.timedelta(days=1) <= self.pub_date <= now 
 
 @receiver(post_save, sender=Post)
-def invalidate_cache(sender, **kwargs):
+def invalidate_cache_save(sender, **kwargs):
     cache.delete(POSTS_KEY)
 
 @receiver(post_delete, sender=Post)
-def invalidate_cache(sender, **kwargs):
-    cache.delete(POSTS_KEY) 
+def invalidate_cache_delete(sender, **kwargs):
+    cache.delete(POSTS_KEY)
