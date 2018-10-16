@@ -8,6 +8,7 @@ from tinymce import HTMLField
 from taggit.managers import TaggableManager
 from taggit.models import TaggedItemBase
 from django.utils import timezone
+from django.core.cache import cache
 
 PROJECTS_KEY = "projects.all"
 
