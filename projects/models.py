@@ -38,7 +38,12 @@ class Project(models.Model):
 
 @receiver(post_save, sender=Project)
 def invalidate_cache(sender, **kwargs):
+	print("This was called on the update of the project")
+	print("HERE is your cache:")
+	print(cache)
     cache.delete(PROJECTS_KEY)
+    print("your cache should now be deleted:")
+    print(cache)
 
 @receiver(post_delete, sender=Project)
 def invalidate_cache(sender, **kwargs):
