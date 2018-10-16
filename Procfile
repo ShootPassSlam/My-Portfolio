@@ -1,2 +1,2 @@
 release: python manage.py migrate
-web: gunicorn myportfolio.wsgi
+web: newrelic-admin run-program gunicorn myportfolio.wsgi
